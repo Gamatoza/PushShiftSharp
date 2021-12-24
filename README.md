@@ -15,9 +15,7 @@ var list = search
 ~~.Before()~~
 ~~.After()~~
 
-.ScoreMoreThan \ 
-.ScoreLessThan  |= search by karma on post
-.ScoreEquals   /
+.ScoreMoreThan|.ScoreLessThan|.ScoreEquals = search by karma on post
 
 .Author          = search by author
 
