@@ -16,7 +16,7 @@ namespace Tests
         public void StandartTest()
         {
             PushShiftSearch search = new PushShiftSearch("meme");
-            var list = search.SearchAsync();
+            var list = search.Search();
             Assert.IsNotNull(list);
         }
 
@@ -26,7 +26,7 @@ namespace Tests
             PushShiftSearch search = new PushShiftSearch("woweconomy");
             var list = search
                 .Title("Weekly")
-                .SearchAsync();
+                .Search();
             Assert.IsNotNull(list);
         }
 
@@ -36,7 +36,7 @@ namespace Tests
             PushShiftSearch search = new PushShiftSearch("woweconomy");
             var list = search
                 .Limit(5)
-                .SearchAsync();
+                .Search();
             Assert.IsTrue(list.Count == 5);
         }
 
@@ -46,7 +46,7 @@ namespace Tests
             PushShiftSearch search = new PushShiftSearch("videos");
             var list = search
                 .AvoidDeleted(true)
-                .SearchAsync();
+                .Search();
             Assert.IsTrue(list.Any(i => i.post_hint.Contains("video")));
         }
 
@@ -57,7 +57,7 @@ namespace Tests
             var list = search
                 .AvoidDeleted(true)
                 .AvoidVideos(true)
-                .SearchAsync();
+                .Search();
             Assert.IsTrue(list.Count == 0);
         }
 
@@ -68,7 +68,7 @@ namespace Tests
             var list = search
                 .AvoidURL(true)
                 .AvoidDeleted(true)
-                .SearchAsync();
+                .Search();
             Assert.IsNotNull(list);
         }
     }

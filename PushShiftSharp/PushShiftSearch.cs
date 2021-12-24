@@ -19,7 +19,7 @@ namespace PushShiftSharp
         {
             url += reddit;
         }
-        public List<PushShiftResult> SearchAsync()
+        public List<PushShiftResult> Search()
         {
             url = getFullUrl();
             Console.WriteLine($"pushshift-url: {url}");
@@ -87,7 +87,7 @@ namespace PushShiftSharp
         private string _selftext { get; set; } = null;
         private string _avoidDeleted { get; set; } = null;
         private string _avoidVideosStr { get; set; } = "&is_video=false";
-        private string _avoidNTFS { get; set; } = "&over_18=false";
+        private string _avoidNSFW { get; set; } = "&over_18=false";
         private string _title { get; set; } = null;
         private string getFullUrl()
         {
@@ -99,7 +99,7 @@ namespace PushShiftSharp
             url += _selftext ?? "";
             url += _avoidDeleted ?? "";
             url += _avoidVideosStr ?? "";
-            url += _avoidNTFS ?? "";
+            url += _avoidNSFW ?? "";
             url += _title ?? "";
             return url;
         }
@@ -179,15 +179,15 @@ namespace PushShiftSharp
             _avoidVideos = avoid;
             return this;
         }
-        public PushShiftSearch AvoidNTFS(bool avoid = true)
+        public PushShiftSearch AvoidNSFW(bool avoid = true)
         {
             if (avoid)
             {
-                _avoidNTFS = "&over_18=false";
+                _avoidNSFW = "&over_18=false";
             }
             else
             {
-                _avoidNTFS = null;
+                _avoidNSFW = null;
             }
             return this;
         }
