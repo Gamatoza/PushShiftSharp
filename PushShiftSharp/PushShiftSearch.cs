@@ -19,7 +19,7 @@ namespace PushShiftSharp
         {
             url += reddit;
         }
-        public List<PushShiftResult> SearchAsync()
+        public List<PushShiftResult> Search()
         {
             url = getFullUrl();
             Console.WriteLine($"pushshift-url: {url}");
